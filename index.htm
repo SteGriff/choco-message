@@ -6,14 +6,59 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="tachyons.css">
 <style>
+@font-face {
+    font-family: 'font1';
+    src: url('font/font1.woff');
+}
+
+.hidden {
+	visibility: hidden;
+}
+.cake {
+	display: block;
+	margin: 1em auto;
+	width: 750px;
+	max-width: 100%;
+	border-radius: 210px;
+}
+.icing {
+	text-align: center;
+    position: fixed;
+    top: 4em;
+    left: 50%;
+    margin-left: -320px;
+	
+    max-width: 90%;
+    width: 640px;
+	height: 4em;
+	overflow: hidden;
+	
+	background: transparent;
+    border: none;
+	font-size: 48px;
+	line-height:1.5em;
+}
+.font1 {
+	font-family: 'font1';
+}
+
 
 </style>
 </head>
 <body class="sans-serif">
-  <main id="app" class="ph2">
+  <main id="app" class="ph2" :style="{ background : bgColour }">
   
+  <div class="cake" :style="imgStyle">
+	<img class="hidden" :src="cakeUrl">
+  </div>
+	
+	<textarea :class="['icing', 'font' + font]" v-model="message"></textarea>
+	
     {{ message }}
 	<button @click="doThing()">Change</button>
+	
+	<pre>{{bodyStyle}}</pre>
+	<pre>{{imgStyle}}</pre>
 	
   </main>
   <script src="vue.js"></script>
