@@ -1,0 +1,45 @@
+@font-face {
+  font-family: 'font1';
+  src: url('font/font1.woff');
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.cake {
+  display: block;
+  border-radius: 210px;
+}
+
+.icing {
+  text-align: center;
+  position: fixed;
+  top: 2.15em;
+  left: 50%;
+  margin-left: -320px;
+
+  max-width: 90%;
+  width: 640px;
+  height: 4em;
+  overflow: hidden;
+
+  background: transparent;
+  border: none;
+  font-size: 30px;
+  line-height: 1.6em;
+  height: 150px;
+}
+
+.font1 {
+  font-family: 'font1';
+}
+
+.form-control {
+  margin-bottom: 5px;
+}
+
+.form-control label {
+  margin-right: 5px;
+  font-weight: bold;
+}
