@@ -1,20 +1,20 @@
 var app = new Vue({
-  el: '#app',
+  el: "#app",
   data: {
-    recipient: 'Person1',
-    message: 'Your message here',
-    sender: 'Person2',
-    cake: 5,
+    from: "Me",
+    message: "Type your message here",
+    cake: 1,
     font: 1,
-    icingColour: '#000000',
+    icingColour: "#000000",
     cakes: [
-      { id: 1, bgColour: '#d8c7cf' },
-      { id: 2, bgColour: '#d8c7cf' },
-      { id: 3, bgColour: '#d8c7cf' },
-      { id: 4, bgColour: '#d8c7cf' },
-      { id: 5, bgColour: '#d8c7cf' },
+      { id: 1, bgColour: "#d8c7cf" },
+      { id: 2, bgColour: "#d8c7cf" },
     ],
-    bgCol2: 'blue',
+  },
+  watch: {
+    message: function () {
+      this.setUrl();
+    },
   },
   computed: {
     bodyStyle() {
@@ -22,31 +22,30 @@ var app = new Vue({
         background: this.bgColour,
       };
     },
-    cakeUrl() {
-      return 'img/cake' + this.cake + '.jpg';
-    },
     imgStyle() {
       return {
-        boxShadow: '0 0 20px 20px ' + this.bgColour + ' inset',
-        //boxShadow: '0 0 20px 20px red inset',
-        background: 'url(' + this.cakeUrl + ') center center no-repeat',
+        background: "url(" + this.cakeUrl + ") center center no-repeat",
       };
+    },
+    cakeUrl() {
+      return "img/cake" + this.cake + ".png";
     },
     bgColour() {
       return this.cakes.find((c) => c.id === this.cake).bgColour;
     },
-    combinedMessage() {
-      let outMessage = '';
-      outMessage += this.recipient.length > 0 ? this.recipient + '\r\n' : '';
-      outMessage += this.message.length > 0 ? this.message + '\r\n' : '';
-      outMessage += this.sender.length > 0 ? this.sender + '\r\n' : '';
-
-      return outMessage;
-    },
   },
   methods: {
-    doThing() {
-      this.message = 'Hai';
+    setUrl() {
+      const params = new URLSearchParams(location.search);
+      params.set("message", btoa(this.message));
+      params.set("r", "1");
+
+      params.toString(); // => test=123&cheese=yummy
+      window.history.replaceState(
+        {},
+        "",
+        `${location.pathname}?${params.toString()}`
+      );
     },
   },
 });

@@ -9,24 +9,23 @@
 
 .cake {
   display: block;
-  border-radius: 210px;
 }
 
 .icing {
   text-align: center;
   position: fixed;
-  top: 2.15em;
+  top: 3em;
   left: 50%;
-  margin-left: -320px;
+  margin-left: -350px;
 
-  max-width: 90%;
-  width: 640px;
-  height: 4em;
+  min-width: 700px;
+  max-width: 700px;
+  min-height: 5.5em;
   overflow: hidden;
 
   background: transparent;
   border: none;
-  font-size: 30px;
+  font-size: 40px;
   line-height: 1.6em;
   height: 150px;
 }

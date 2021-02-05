@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-100">
   <head>
     <title>Choco Message</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -7,37 +7,28 @@
     <link rel="stylesheet" href="tachyons.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="sans-serif">
-    <main id="app" class="ph2" :style="{ background : bgColour }">
+  <body class="sans-serif h-100">
+    <main id="app" class="ph2 h-100" :style="{ background : bgColour }">
+      
+      <div class="fl ma3">
+        <label for="from">From: </label>
+        <input name="from" v-model="from" placeholder="From" />
+      </div>
+
+      <div class="cake-picker">
+        <img class="w3 fr ma3" v-for="c in cakes" @click="cake = c.id" :src="'img/cake' + c.id + '.png'">
+      </div>
+
       <div class="cake" :style="imgStyle">
         <img class="hidden" :src="cakeUrl" />
       </div>
 
-      <div class="form">
-        <textarea
-		  :class="['icing', 'font' + font]"
-		  :style="{ 'color': icingColour }"
-          v-model="combinedMessage"
-        ></textarea>
+      <textarea
+        :class="['icing', 'font' + font]"
+        :style="{ 'color': icingColour }"
+        v-model="message"
+      ></textarea>
 
-        <div class="form-control">
-          <label>Recipient</label>
-		  <input v-model="recipient" placeholder="Recipient" />
-		  <icing-colour></icing-colour>
-        </div>
-        <div class="form-control">
-          <label>Message</label>
-		  <input v-model="message" placeholder="Message" />
-		  <icing-colour></icing-colour>
-        </div>
-        <div class="form-control">
-          <label>Sender</label>
-		  <input v-model="sender" placeholder="Sender" />
-		  <icing-colour></icing-colour>
-        </div>
-      </div>
-      <pre>{{bodyStyle}}</pre>
-      <pre>{{imgStyle}}</pre>
     </main>
     <script src="vue.js"></script>
     <script src="app.js"></script>
