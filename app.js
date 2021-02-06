@@ -15,11 +15,15 @@ var app = new Vue({
       { id : "#222222", name : 'Dark Choc' },
       { id : "#eadbd8", name : 'Choco Glaze'},
       { id : "#fdeded", name : 'Donut Glaze' },
-      { id : "#e7eef3", name : 'Blueberry' }
+      { id : "#f7a252", name : 'Carotty' },
+      { id : "#466c8d", name : 'Blueberry' },
+      
     ],
     cakes: [
       { id: 1, bgColour: "#d8c7cf" },
       { id: 2, bgColour: "#d8c7cf" },
+      { id: 3, bgColour: "#d8c7cf" },
+      { id: 4, bgColour: "#d8c7cf" },
     ],
   },
   watch: {
