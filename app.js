@@ -6,12 +6,17 @@ var app = new Vue({
     cake: 1,
     font: 1,
     fonts: [
-      { id : 1, name : 'Neat', size: 1 },
-      { id : 2, name : 'Piped', size: 1.5},
-      { id : 3, name : 'Curly', size: 1 },
+      { id : 1, name : 'Neat' },
+      { id : 2, name : 'Piped' },
+      { id : 3, name : 'Curly'  },
     ],
     icingColour: "#222222",
-    icingColours: ["#222222", "#eadbd8", "#fdeded", "#e7eef3"],
+    icingColours: [
+      { id : "#222222", name : 'Dark Choc' },
+      { id : "#eadbd8", name : 'Choco Glaze'},
+      { id : "#fdeded", name : 'Donut Glaze' },
+      { id : "#e7eef3", name : 'Blueberry' }
+    ],
     cakes: [
       { id: 1, bgColour: "#d8c7cf" },
       { id: 2, bgColour: "#d8c7cf" },
