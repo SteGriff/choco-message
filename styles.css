@@ -61,10 +61,11 @@
   font-size: 2.5em;
 
   clear: both;
-  margin: 80px auto 0 auto;
+  margin: 72px auto 0 auto;
 }
 
 .icing.font2 {
   font-size: 4em;
   margin-top: 60px;
+  line-height: 1em;
 }
