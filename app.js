@@ -5,7 +5,13 @@ var app = new Vue({
     message: "Type your message here",
     cake: 1,
     font: 1,
-    icingColour: "#000000",
+    fonts: [
+      { id : 1, name : 'Neat', size: 1 },
+      { id : 2, name : 'Piped', size: 1.5},
+      { id : 3, name : 'Curly', size: 1 },
+    ],
+    icingColour: "#222222",
+    icingColours: ["#222222", "#eadbd8", "#fdeded", "#e7eef3"],
     cakes: [
       { id: 1, bgColour: "#d8c7cf" },
       { id: 2, bgColour: "#d8c7cf" },
@@ -24,7 +30,7 @@ var app = new Vue({
     },
     imgStyle() {
       return {
-        background: "url(" + this.cakeUrl + ") center center no-repeat",
+        background: "url(" + this.cakeUrl + ") no-repeat scroll top center / contain",
       };
     },
     cakeUrl() {

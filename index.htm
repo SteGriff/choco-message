@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="h-100">
+<html class="h-100 overflow-hidden cursive">
   <head>
     <title>Choco Message</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -7,28 +7,60 @@
     <link rel="stylesheet" href="tachyons.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="sans-serif h-100">
-    <main id="app" class="ph2 h-100" :style="{ background : bgColour }">
-      
-      <div class="fl ma3">
-        <label for="from">From: </label>
-        <input name="from" v-model="from" placeholder="From" />
-      </div>
+  <body class="h-100">
+    <main
+      id="app"
+      class="ph2 h-100 ba b--gray"
+      :style="{ background : bgColour }"
+    >
+      <div class="flex items-center mb2 pt3">
+        <div class="mh3">
+          <label for="from">From: </label>
+          <input
+            name="from"
+            v-model="from"
+            placeholder="From"
+            class="bg-transparent bl-0 bt-0 br-0 bb bw2 b--gray"
+          />
+        </div>
 
-      <div class="cake-picker">
-        <img class="w3 fr ma3" v-for="c in cakes" @click="cake = c.id" :src="'img/cake' + c.id + '.png'">
+        <div class="mh3 ba br-pill pa2 bg-near-white">
+            <span class="mh1 pointer" v-for="f in fonts" :class="['font' + f.id]" @click="font = f.id">
+              {{f.name}}
+            </span>
+          </select>
+        </div>
+
+        <div class="mh3">
+          <select v-model="icingColour">
+            <option
+              v-for="ic in icingColours"
+              :class="['pointer']"
+              :value="ic"
+            >
+              {{ic}}
+            </option>
+          </select>
+        </div>
+
+        <div class="mh3 ba br-pill pa2 bg-near-white">
+          <img
+            class="w2 ma1 mh3 pointer"
+            v-for="c in cakes"
+            @click="cake = c.id"
+            :src="'img/cake' + c.id + '.png'"
+          />
+        </div>
       </div>
 
       <div class="cake" :style="imgStyle">
+        <textarea
+          :class="['icing', 'font' + font]"
+          :style="{ 'color': icingColour }"
+          v-model="message"
+        ></textarea>
         <img class="hidden" :src="cakeUrl" />
       </div>
-
-      <textarea
-        :class="['icing', 'font' + font]"
-        :style="{ 'color': icingColour }"
-        v-model="message"
-      ></textarea>
-
     </main>
     <script src="vue.js"></script>
     <script src="app.js"></script>
