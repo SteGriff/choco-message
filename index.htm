@@ -36,7 +36,7 @@
         </div>
 
         <div class="mh3" v-if="!readOnly">
-          <select v-model="icingColour">
+          <select class="f3" v-model="icingColour">
             <option
               v-for="ic in icingColours"
               :class="['pointer']"
@@ -56,19 +56,26 @@
           />
         </div>
 
-        <div class="" >
-          <button class="br-pill pa2 f3 ba bw2 b--gray mr3 pointer" @click="startEditing">
+        <div>
+          <button
+            class="br-pill pa2 f3 ba bw2 b--gray mr3 pointer"
+            @click="copy"
+            title="Copy URL"
+            v-if="!readOnly"
+          >
+            <span>Copy URL</span>
+            <span :class="[copied ? 'show' : 'ghost']">✅</span>
+          </button>
+          <button
+            class="br-pill pa2 f3 ba bw2 b--gray mr3 pointer"
+            @click="startEditing"
+          >
             {{ readOnly ? 'Make your own' : 'Start again' }}
           </button>
-          <button class="br-pill pa2 f3 ba bw2 b--gray mr3 pointer" @click="copy" title="Copy URL">
-            <span class="floaty" v-if="!copied">📋</span>
-            <span class="floaty z-999" v-if="copied">✔</span>
-          </button>
         </div>
-
       </div>
 
-      <div class="cake" :style="imgStyle">
+      <div class="cake z-999" :style="imgStyle">
         <textarea
           :class="['icing', 'font' + font]"
           :style="{ 'color': icingColour }"
@@ -77,6 +84,26 @@
         ></textarea>
         <img class="hidden" :src="cakeUrl" />
       </div>
+
+      <div class="z-0 banner">
+        <a class="db"
+          href="https://www.justgiving.com/fundraising/nsg-rethink-valentines"
+        >
+          <img
+            src="img/justgiving.png"
+            alt="Give to Rethink Mental Illness"
+          />
+        </a>
+        <a class="db"
+          href="https://nsg.sharepoint.com/sites/StepForward/SitePages/Rethink-Valentine's.aspx"
+        >
+          <img
+            src="img/rethink.jpg"
+            alt="Rethink Valentine's Day"
+          />
+        </a>
+      </div>
+
     </main>
     <script src="vue.js"></script>
     <script src="app.js"></script>
