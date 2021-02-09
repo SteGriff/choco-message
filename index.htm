@@ -13,8 +13,8 @@
       class="ph2 h-100 ba b--gray"
       :style="{ background : bgColour }"
     >
-      <div class="flex items-center mb2 pt3">
-        <div class="mh3">
+      <div class="flex items-center justify-between mb2 pt3">
+        <div class="mh3 f3">
           <label for="from">From: </label>
           <input
             name="from"
@@ -24,14 +24,18 @@
           />
         </div>
 
-        <div class="mh3 ba br-pill pa2 bg-near-white">
-            <span class="mh1 pointer" v-for="f in fonts" :class="['font' + f.id]" @click="font = f.id">
-              {{f.name}}
-            </span>
-          </select>
+        <div class="mh3 ba br-pill pa2 bg-near-white" v-if="!readOnly">
+          <span
+            class="mh1 pointer"
+            v-for="f in fonts"
+            :class="['font' + f.id]"
+            @click="font = f.id"
+          >
+            {{f.name}}
+          </span>
         </div>
 
-        <div class="mh3">
+        <div class="mh3" v-if="!readOnly">
           <select v-model="icingColour">
             <option
               v-for="ic in icingColours"
@@ -43,7 +47,7 @@
           </select>
         </div>
 
-        <div class="mh3 ba br-pill pa2 bg-near-white">
+        <div class="mh3 ba br-pill pa2 bg-near-white" v-if="!readOnly">
           <img
             class="w2 ma1 mh3 pointer"
             v-for="c in cakes"
@@ -51,12 +55,24 @@
             :src="'img/cake' + c.id + '.png'"
           />
         </div>
+
+        <div class="" >
+          <button class="br-pill pa2 f3 ba bw2 b--gray mr3 pointer" @click="startEditing">
+            {{ readOnly ? 'Make your own' : 'Start again' }}
+          </button>
+          <button class="br-pill pa2 f3 ba bw2 b--gray mr3 pointer" @click="copy" title="Copy URL">
+            <span class="floaty" v-if="!copied">📋</span>
+            <span class="floaty z-999" v-if="copied">✔</span>
+          </button>
+        </div>
+
       </div>
 
       <div class="cake" :style="imgStyle">
         <textarea
           :class="['icing', 'font' + font]"
           :style="{ 'color': icingColour }"
+          v-bind:disabled="readOnly"
           v-model="message"
         ></textarea>
         <img class="hidden" :src="cakeUrl" />
