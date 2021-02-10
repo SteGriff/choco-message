@@ -66,7 +66,7 @@
 
 .icing.font2 {
   font-size: 4em;
-  margin-top: 60px;
+  margin-top: 64px;
   line-height: 1em;
 }
 
@@ -88,4 +88,8 @@
   position: absolute;
   left: 1em;
   bottom: 1em;
+}
+
+.w4h {
+  width: 10rem;
 }

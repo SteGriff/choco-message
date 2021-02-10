@@ -14,17 +14,17 @@
       :style="{ background : bgColour }"
     >
       <div class="flex items-center justify-between mb2 pt3">
-        <div class="mh3 f3">
+        <div class="mh2 f3">
           <label for="from">From: </label>
           <input
             name="from"
             v-model="from"
             placeholder="From"
-            class="bg-transparent bl-0 bt-0 br-0 bb bw2 b--gray"
+            class="bg-transparent bl-0 bt-0 br-0 bb bw2 b--gray w4h"
           />
         </div>
 
-        <div class="mh3 ba br-pill pa2 bg-near-white" v-if="!readOnly">
+        <div class="mh2 ba br-pill pa2 bg-near-white" v-if="!readOnly">
           <span
             class="mh1 pointer"
             v-for="f in fonts"
@@ -35,8 +35,8 @@
           </span>
         </div>
 
-        <div class="mh3" v-if="!readOnly">
-          <select class="f3" v-model="icingColour">
+        <div class="mh2" v-if="!readOnly">
+          <select class="f4" v-model="icingColour">
             <option
               v-for="ic in icingColours"
               :class="['pointer']"
@@ -47,9 +47,9 @@
           </select>
         </div>
 
-        <div class="mh3 ba br-pill pa2 bg-near-white" v-if="!readOnly">
+        <div class="mh2 ba br-pill pa2 bg-near-white" v-if="!readOnly">
           <img
-            class="w2 ma1 mh3 pointer"
+            class="w2 ma1 mh2 pointer"
             v-for="c in cakes"
             @click="cake = c.id"
             :src="'img/cake' + c.id + '.png'"
@@ -58,7 +58,7 @@
 
         <div>
           <button
-            class="br-pill pa2 f3 ba bw2 b--gray mr3 pointer"
+            class="br-pill pa2 f4 ba bw2 b--gray mr2 pointer"
             @click="copy"
             title="Copy URL"
             v-if="!readOnly"
@@ -67,7 +67,7 @@
             <span :class="[copied ? 'show' : 'ghost']">✅</span>
           </button>
           <button
-            class="br-pill pa2 f3 ba bw2 b--gray mr3 pointer"
+            class="br-pill pa2 f4 ba bw2 b--gray mr3 pointer"
             @click="startEditing"
           >
             {{ readOnly ? 'Make your own' : 'Start again' }}
@@ -86,24 +86,23 @@
       </div>
 
       <div class="z-0 banner">
-        <a class="db"
+        <a
+          class="db"
           href="https://www.justgiving.com/fundraising/nsg-rethink-valentines"
         >
           <img
+            class="w5"
             src="img/justgiving.png"
             alt="Give to Rethink Mental Illness"
           />
         </a>
-        <a class="db"
+        <a
+          class="db"
           href="https://nsg.sharepoint.com/sites/StepForward/SitePages/Rethink-Valentine's.aspx"
         >
-          <img
-            src="img/rethink.jpg"
-            alt="Rethink Valentine's Day"
-          />
+          <img class="w5" src="img/rethink.jpg" alt="Rethink Valentine's Day" />
         </a>
       </div>
-
     </main>
     <script src="vue.js"></script>
     <script src="app.js"></script>
